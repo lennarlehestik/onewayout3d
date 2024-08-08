@@ -34,7 +34,19 @@ wss.on('connection', (ws) => {
         const data = JSON.parse(message);
         data.id = playerId;
         console.log(`Received message from ${playerId}:`, data);
-        broadcast(data, playerId);
+
+        switch(data.type) {
+            case 'move':
+                // Broadcast player movement to all other players
+                broadcast(data, playerId);
+                break;
+            case 'shoot':
+                // Broadcast shooting information to all players, including the shooter
+                broadcast(data);
+                break;
+            default:
+                console.log(`Unknown message type: ${data.type}`);
+        }
     });
 
     ws.on('close', () => {
