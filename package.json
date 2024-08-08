@@ -1,0 +1,14 @@
+{
+    "name": "unity-multiplayer-game",
+    "version": "1.0.0",
+    "description": "A multiplayer game using Unity and WebSockets",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "ws": "^7.4.5",
+      "mime-types": "^2.1.35"
+    }
+  }
